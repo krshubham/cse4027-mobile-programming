@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question-2</title>
+</head>
+<body>
+    <form action="#" id="checkForm">
+        <input type="text" id="regno" />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('#checkForm').on('submit', function(evt){
+        evt.preventDefault();
+        let regno = $('#regno').val();
+        let year = regno.slice(0,2);
+        let branch = regno.slice(2,5);
+        try{
+            if(year[0] >= '1' && year[0] <= '9' && year[1] >= '1' && year[1] <= '9'){
+                console.log(branch);
+                if(branch[0] == 'M' && branch[1] == 'S' && branch[2] >= '1' && branch[2] <= '9'){
+                    alert('Valid regno');
+                    return false;
+                }
+                if(branch !== 'CSE' && branch !== 'MCA' && branch !== 'ECE'){
+                    throw new Error('Invalid regno');
+                }
+                alert('valid regno');
+                return false;
+            }
+            throw new Error('Hello');
+        }
+        catch(err){
+            alert('The regno you have entered is invalid');
+        }
+        return false;
+    });
+    
+</script>
+</html>
