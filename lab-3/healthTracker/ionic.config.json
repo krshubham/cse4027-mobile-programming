@@ -1,0 +1,7 @@
+{
+  "name": "healthTracker",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

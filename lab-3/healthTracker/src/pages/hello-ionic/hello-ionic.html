@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center">Health Tracker</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h3 style="text-align: center">Welcome to the health tracker!</h3>
+  <h3 style="text-align: center">Login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button style="display: block; margin: 0 auto;" type="submit" [disabled]="!loginForm.valid" ion-button color="primary">Login</button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
