@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <title>Third question</title>
+</head>
+<body id="full-screen">
+    <button class="btn btn-waves" onclick="goFullScreen()">Go fullscreen</button>
+    <div class="container">
+        <div class="row">
+            <div class="col m4 s12">
+                <button type="button" class="btn btn-waves" type="button" id="lock-orientation">Lock orientation</button>
+            </div>
+            <div class="col m4 s12">
+                <button type="button" class="btn btn-waves" type="button" id="unlock-orientation">Unlock orientation</button>
+            </div>
+            <div class="col m4 s12">
+                <button type="button" class="btn btn-waves" type="button" id="alert-screen">Alert current screen type</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    async function goFullScreen(){
+        try{
+            let element = document.getElementById('full-screen');
+            if(element.requestFullscreen){
+                element.requestFullscreen();
+            }
+            else if(element.mozRequestFullScreen){
+                element.mozRequestFullScreen();
+            }
+            else if(element.webkitRequestFullscreen){
+                element.webkitRequestFullscreen();
+            }
+            else if(element.msRequestFullscreen){
+                element.msRequestFullscreen();
+            }
+        }
+        catch(err){
+            alert(err);
+        }
+    }
+    (async () => {
+        document.getElementById('lock-orientation').onclick = async (event) => {
+            try{
+                // Lock the screen in the cureent screen orientation
+                await screen.orientation.lock(screen.orientation.type);
+            }
+            catch(err){
+                alert(err);
+            }
+        }
+        document.getElementById('unlock-orientation').onclick = async (event) => {
+            try{
+                screen.orientation.unlock();
+            }
+            catch(err){
+                alert(err);
+            }
+        }
+        document.getElementById('alert-screen').onclick = (event) => {
+            alert(screen.orientation.type);
+        }
+    })();
+</script>
+</html>

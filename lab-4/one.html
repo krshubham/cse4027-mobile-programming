@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    
+    <title>Screen Orientation API example</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello and Welcome to screen Orientation API</h1>
+        <p>The current screen Orientation is: <strong id="screen-type-value"></strong></p>
+        <br>
+        <p>The currents screen rotation angle is: <strong id="screen-angle-value"></strong></p>
+    </div>
+</body>
+<script>
+    (() => {
+        let type = document.getElementById('screen-type-value');
+        let angle = document.getElementById('screen-angle-value');
+        type.innerHTML = screen.orientation.type;
+        angle.innerHTML = screen.orientation.angle;
+        screen.orientation.onchange = () => {
+            let type = document.getElementById('screen-type-value');
+            let angle = document.getElementById('screen-angle-value');
+            type.innerHTML = screen.orientation.type;
+            angle.innerHTML = screen.orientation.angle;
+        }
+    })();
+</script>
+</html>

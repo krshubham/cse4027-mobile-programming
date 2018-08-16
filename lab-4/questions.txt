@@ -1,0 +1,7 @@
+1. Develop an app to alert the screen type and its angle whenever screen changes.
+
+2. When mouseover on a description line for an web page should alert about current screen properties.
+
+3. Through button interface perform the following functionalities
+- Lock screen in portrait
+- unlock screen in portrait
